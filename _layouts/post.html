@@ -1,14 +1,20 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
-
-<p>
-  {{ page.date | date_to_string }}
-  {% assign author = site.authors | where: 'short_name', page.author | first %}
-  {% if author %}
-    - <a href="{{ author.url }}">{{ author.name }}</a>
-  {% endif %}
-</p>
-
-{{ content }}
+<div class="markdown-body col-sm-12 col-md-10 mx-auto">
+  <h1>{{ page.title }}</h1>
+  
+  <p>
+    {{ page.date | date_to_string }}
+    {% assign author = site.authors | where: 'short_name', page.author | first %}
+    {% if author %}
+      - <a href="{{ author.url }}">{{ author.name }}</a>
+    {% endif %}
+  </p>
+  <div>
+      {{ content }}
+  </div>
+  <p style="color: var(--color-auto-blue-5)">
+  sadjklasdjlkajsdlk
+  </p>
+</div>

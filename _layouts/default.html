@@ -6,9 +6,13 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
     {% feed_meta %}
     {% seo %}
+    <link href="https://unpkg.com/@primer/css@^16.0.0/dist/primer.css" rel="stylesheet" />
   </head>
   <body>
     {% include navigation.html %}
-    {{ content }}
+    <div>
+      {{ content }}
+
+    </div>
   </body>
 </html>
