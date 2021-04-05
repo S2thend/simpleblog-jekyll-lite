@@ -7,12 +7,20 @@
     {% feed_meta %}
     {% seo %}
     <link href="https://unpkg.com/@primer/css@^16.0.0/dist/primer.css" rel="stylesheet" />
+    <script>
+      console.log((location.href).split("/")[3])
+      switch((navigator.language).substr(0,2)){
+        case "zh":
+          if((location.href).split("/")[3] != "zh"){
+            location.replace("zh")
+          }
+          console.log(1)
+          break
+      }
+    </script>
   </head>
   <body>
     {% include navigation.html %}
-    <div>
-      {{ content }}
-
-    </div>
+    {{ content }}
   </body>
 </html>

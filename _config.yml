@@ -78,4 +78,4 @@ plugins:
   - jekyll-seo-tag
   - jekyll-multiple-languages-plugin
 
-languages: ["en", "de"]
+languages: ["en", "zh"]

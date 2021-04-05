@@ -8,7 +8,7 @@
     </div>
     {% for item in site.data.navigation %}
         <div class="Header-item">
-            <a class="Header-link" href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
+            <a class="Header-link" href="{% t global.english %}{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
         </div>
     {% endfor %}
-  </nav>
+</nav>
