@@ -53,15 +53,9 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-collections:
-  authors:
-   output: true
+
+# ------mycode-below-------
 defaults:
-  - scope:
-      path: ""
-      type: "authors"
-    values:
-      layout: "author"
   - scope:
       path: ""
       type: "posts"
@@ -90,4 +84,4 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
 
-paginate_path: "/blog/page/:num/"
+paginate_path: "/page/:num/"
