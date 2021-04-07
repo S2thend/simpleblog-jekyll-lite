@@ -76,7 +76,18 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-paginate
+  - jekyll-paginate-v2
 
-paginate: 1
-paginate_path: "/blog/page:num/"
+# paginate: 3
+# paginate_path: "/legacy/blog/page:num/"
+
+pagination:
+  enabled: true
+  per_page: 1
+  permalink: '/page/:num/'
+  title: ' - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+
+paginate_path: "/blog/page/:num/"
