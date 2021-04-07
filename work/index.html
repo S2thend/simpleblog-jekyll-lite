@@ -1,85 +1,11 @@
 ---
-title: Home
+layout: default
+title: work
 pagination: 
   enabled: true
-  permalink: /page/:num/
+  category: work
 ---
-
 {% include name_card.html %}
-
-<div class="tabnav col-12 d-flex flex-justify-center m-1">
-  <nav class="tabnav-tabs" aria-label="Foo bar">
-    <a class="tabnav-tab" href="#url" aria-current="page">Foo tab</a>
-    <a class="tabnav-tab" href="#url">Bar tab</a>
-  </nav>
-</div>
-
-<div class="d-flex flex-column flex-items-center">
-
-  <h1>Latest Posts</h1>
-  
-  <!-- This loops through the paginated posts -->
-  {% for post in paginator.posts %}
-  <div class="Box col-10">
-    <div class="Box-header">
-      <h3 class="Box-title">
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      </h3>
-    </div>
-    <div class="Box-body">
-      {{ post.date }}
-    </div>
-    <div class="Box-footer">
-      {{ post.excerpt }}
-    </div>
-  </div>
-  {% endfor %}
-  
-</div>
-
-<div class="d-flex flex-justify-around">
-  <div class="Box col-2 hover-grow m-3 rounded-3" style="cursor:pointer">
-    <div class="">
-      <img class="width-full avatar mb-md-0" src="/assets/images/222.png" alt="github" />
-    </div>
-    <div class="Box-body css-truncate css-truncate-overflow">
-      <a href="">
-        123erwrwerwerwerewrwersssssssssssssssssssssssssss
-      </a>
-    </div>
-    <div class="Box-footer">
-      123
-    </div>
-  </div>
-  <div class="Box col-2 hover-grow m-3" style="cursor:pointer">
-    <div class="">
-      <img class="width-full avatar mb-md-0" src="/assets/images/222.png" alt="github" />
-    </div>
-    <div class="Box-body css-truncate css-truncate-overflow">
-      <a href="">
-        123erwrwerwerwerewrwersssssssssssssssssssssssssss
-      </a>
-    </div>
-    <div class="Box-footer">
-      123
-    </div>
-  </div>
-  <div class="Box col-2 hover-grow m-3" style="cursor:pointer">
-    <div class="">
-      <img class="width-full avatar mb-md-0" src="/assets/images/222.png" alt="github" />
-    </div>
-    <div class="Box-body css-truncate css-truncate-overflow">
-      <a href="">
-        123erwrwerwerwerewrwersssssssssssssssssssssssssss
-      </a>
-    </div>
-    <div class="Box-footer">
-      123
-    </div>
-  </div>
-</div>
-
-
 
 {% if paginator.total_pages > 1 %}
 <nav class="paginate-container" aria-label="Pagination">
@@ -97,9 +23,9 @@ pagination:
             {% if page == paginator.page %}
               <em aria-current="page">{{ page }}</em>
             {% elsif page == 1 %}
-              <a href="{{ '/' | relative_url }}">{{ page }}</a>
+              <a href="{{ '/work' | relative_url }}">{{ page }}</a>
             {% else %}
-              <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+              <a href="{{ site.paginate_path_work | relative_url | replace: ':num' }}">{{ page }}</a>
             {% endif %}
           {% endfor %}
           <span class="gap">…</span>
@@ -110,9 +36,9 @@ pagination:
             {% if page == paginator.page %}
               <em aria-current="page">{{ page }}</em>
             {% elsif page == 1 %}
-              <a href="{{ '/' | relative_url }}">{{ page }}</a>
+              <a href="{{ '/work' | relative_url }}">{{ page }}</a>
             {% else %}
-              <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+              <a href="{{ site.paginate_path_work | relative_url | replace: ':num', page }}">{{ page }}</a>
             {% endif %}
           {% endfor %}
           <span class="gap">…</span>
@@ -126,9 +52,9 @@ pagination:
             {% if page == paginator.page %}
               <em aria-current="page">{{ page }}</em>
             {% elsif page == 1 %}
-              <a href="{{ '/' | relative_url }}">{{ page }}</a>
+              <a href="{{ '/work' | relative_url }}">{{ page }}</a>
             {% else %}
-              <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+              <a href="{{ site.paginate_path_work | relative_url | replace: ':num', page }}">{{ page }}</a>
             {% endif %}
           {% endfor %}
           {% if paginator.page < total_pages_prev5 %}
@@ -142,9 +68,9 @@ pagination:
             {% if page == paginator.page %}
               <em aria-current="page">{{ page }}</em>
             {% elsif page == 1 %}
-              <a href="{{ '/' | relative_url }}">{{ page }}</a>
+              <a href="{{ '/work' | relative_url }}">{{ page }}</a>
             {% else %}
-              <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+              <a href="{{ site.paginate_path_work | relative_url | replace: ':num', page }}">{{ page }}</a>
             {% endif %}
           {% endfor %}
         {% endif %}
@@ -154,9 +80,9 @@ pagination:
           {% if page == paginator.page %}
             <em aria-current="page">{{ page }}</em>
           {% elsif page == 1 %}
-            <a href="{{ '/' | relative_url }}">{{ page }}</a>
+            <a href="{{ '/work' | relative_url }}">{{ page }}</a>
           {% else %}
-            <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+            <a href="{{ site.paginate_path_work | relative_url | replace: ':num', page }}">{{ page }}</a>
           {% endif %}
         {% endfor %}
     
@@ -166,9 +92,9 @@ pagination:
         {% if page == paginator.page %}
           <em aria-current="page">{{ page }}</em>
         {% elsif page == 1 %}
-          <a href="{{ '/' | relative_url }}">{{ page }}</a>
+          <a href="{{ '/work' | relative_url }}">{{ page }}</a>
         {% else %}
-          <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+          <a href="{{ site.paginate_path_work | relative_url | replace: ':num', page }}">{{ page }}</a>
         {% endif %}
       {% endfor %}
 
@@ -183,3 +109,7 @@ pagination:
   </div>
 </nav>
 {% endif %}
+
+
+<p>{{ site.paginate_path_work | relative_url | replace: ':num', page }}</p>
+<p>{{ page }}</p>

@@ -85,3 +85,4 @@ pagination:
   sort_reverse: true
 
 paginate_path: "/page/:num/"
+paginate_path_work: "/work/page/:num/"
