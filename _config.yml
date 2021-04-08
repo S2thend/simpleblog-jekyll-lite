@@ -53,9 +53,15 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-
-# ------mycode-below-------
+collections:
+  authors:
+   output: true
 defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
   - scope:
       path: ""
       type: "posts"
@@ -70,19 +76,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-paginate-v2
+  - jekyll-paginate
 
-# paginate: 3
-# paginate_path: "/legacy/blog/page:num/"
-
-pagination:
-  enabled: true
-  per_page: 1
-  permalink: '/page/:num/'
-  title: ' - page :num'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
-
-paginate_path: "/page/:num/"
-paginate_path_work: "/work/page/:num/"
+paginate: 4
+paginate_path: "/blog/page:num/"

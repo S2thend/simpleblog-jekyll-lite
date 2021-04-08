@@ -1,115 +1,35 @@
 ---
-layout: default
 title: work
-pagination: 
-  enabled: true
-  category: work
 ---
+
 {% include name_card.html %}
 
-{% if paginator.total_pages > 1 %}
-<nav class="paginate-container" aria-label="Pagination">
-  <div class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | relative_url }}" rel="previous" class="previous_page">Prev</a>
-    {% else %}
-      <span class="previous_page" aria-disabled="true">Prev</span>
-    {% endif %}
+<div class="tabnav col-12 d-flex flex-justify-center m-1">
+  <nav class="tabnav-tabs" aria-label="Foo bar">
+    <a class="tabnav-tab" href="/">all posts</a>
+    <a class="tabnav-tab" href="#url" aria-current="page">work</a>
+  </nav>
+</div>
 
-    {% if paginator.total_pages > 11 %}
-    
-        {% if paginator.page > 6 %}
-          {% for page in (1..3) %}
-            {% if page == paginator.page %}
-              <em aria-current="page">{{ page }}</em>
-            {% elsif page == 1 %}
-              <a href="{{ '/work' | relative_url }}">{{ page }}</a>
-            {% else %}
-              <a href="{{ site.paginate_path_work | relative_url | replace: ':num' }}">{{ page }}</a>
+<div class="d-flex flex-column flex-items-center">
+    <h1>Latest Posts</h1>
+    {% for post in site.posts %}
+        {% for category in post.categories %}
+            {% if category == "work" %}
+            <div class="Box col-10 mb-3">
+                <div class="Box-header">
+                <h3 class="Box-title">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </h3>
+                </div>
+                <div class="Box-body">
+                {{ post.date }}
+                </div>
+                <div class="Box-footer">
+                {{ post.excerpt }}
+                </div>
+            </div>
             {% endif %}
-          {% endfor %}
-          <span class="gap">…</span>
-        {% endif %}
-    
-        {% if paginator.page <= 6 %}
-          {% for page in (1..7) %}
-            {% if page == paginator.page %}
-              <em aria-current="page">{{ page }}</em>
-            {% elsif page == 1 %}
-              <a href="{{ '/work' | relative_url }}">{{ page }}</a>
-            {% else %}
-              <a href="{{ site.paginate_path_work | relative_url | replace: ':num', page }}">{{ page }}</a>
-            {% endif %}
-          {% endfor %}
-          <span class="gap">…</span>
-        {% endif %}
-    
-    
-        {% assign total_pages_prev3 = paginator.total_pages | minus: 3 %}
-        {% assign total_pages_prev5 = paginator.total_pages | minus: 5 %}
-        {% if paginator.page > 6 and paginator.page < total_pages_prev5 %}
-          {% for page in (paginator.previous_page..paginator.next_page) %}
-            {% if page == paginator.page %}
-              <em aria-current="page">{{ page }}</em>
-            {% elsif page == 1 %}
-              <a href="{{ '/work' | relative_url }}">{{ page }}</a>
-            {% else %}
-              <a href="{{ site.paginate_path_work | relative_url | replace: ':num', page }}">{{ page }}</a>
-            {% endif %}
-          {% endfor %}
-          {% if paginator.page < total_pages_prev5 %}
-            <span class="gap">…</span>
-          {% endif %}
-        {% endif %}
-    
-        {% assign total_pages_prev6 = paginator.total_pages | minus: 6 %}
-        {% if paginator.page >= total_pages_prev5 %}
-          {% for page in (total_pages_prev6..total_pages_prev3) %}
-            {% if page == paginator.page %}
-              <em aria-current="page">{{ page }}</em>
-            {% elsif page == 1 %}
-              <a href="{{ '/work' | relative_url }}">{{ page }}</a>
-            {% else %}
-              <a href="{{ site.paginate_path_work | relative_url | replace: ':num', page }}">{{ page }}</a>
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-    
-        {% assign total_pages_prev2 = paginator.total_pages | minus: 2 %}
-        {% for page in (total_pages_prev2..paginator.total_pages) %}
-          {% if page == paginator.page %}
-            <em aria-current="page">{{ page }}</em>
-          {% elsif page == 1 %}
-            <a href="{{ '/work' | relative_url }}">{{ page }}</a>
-          {% else %}
-            <a href="{{ site.paginate_path_work | relative_url | replace: ':num', page }}">{{ page }}</a>
-          {% endif %}
         {% endfor %}
-    
-    {% else %}
-
-      {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-          <em aria-current="page">{{ page }}</em>
-        {% elsif page == 1 %}
-          <a href="{{ '/work' | relative_url }}">{{ page }}</a>
-        {% else %}
-          <a href="{{ site.paginate_path_work | relative_url | replace: ':num', page }}">{{ page }}</a>
-        {% endif %}
-      {% endfor %}
-
-    {% endif %}
-    
-  
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | relative_url }}" rel="next" class="next_page" aria-label="Next Page">Next</a>
-    {% else %}
-      <span class="next_page" aria-disabled="true">Next</span>
-    {% endif %}
-  </div>
-</nav>
-{% endif %}
-
-
-<p>{{ site.paginate_path_work | relative_url | replace: ':num', page }}</p>
-<p>{{ page }}</p>
+    {% endfor %}
+</div>

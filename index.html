@@ -9,8 +9,8 @@ pagination:
 
 <div class="tabnav col-12 d-flex flex-justify-center m-1">
   <nav class="tabnav-tabs" aria-label="Foo bar">
-    <a class="tabnav-tab" href="#url" aria-current="page">Foo tab</a>
-    <a class="tabnav-tab" href="#url">Bar tab</a>
+    <a class="tabnav-tab" href="#url" aria-current="page">all posts</a>
+    <a class="tabnav-tab" href="/work">work</a>
   </nav>
 </div>
 
@@ -38,45 +38,23 @@ pagination:
 </div>
 
 <div class="d-flex flex-justify-around">
-  <div class="Box col-2 hover-grow m-3 rounded-3" style="cursor:pointer">
-    <div class="">
-      <img class="width-full avatar mb-md-0" src="/assets/images/222.png" alt="github" />
+  {% for post in paginator.posts %}
+  <div class="Box col-2 hover-grow m-3 rounded-3 tooltipped tooltipped-n tooltipped-multiline" aria-label="{{ post.excerpt | strip_html }}" style="cursor:pointer">
+    <div class="width-full avatar mb-md-0 d-flex flex-items-center" style="height: 28vh;">
+      <p class="f0-light color-text-purple">{{ post.title }}</p>
     </div>
     <div class="Box-body css-truncate css-truncate-overflow">
-      <a href="">
-        123erwrwerwerwerewrwersssssssssssssssssssssssssss
+      <a href="{{ post.url }}">
+        {{ post.title }}
       </a>
-    </div>
-    <div class="Box-footer">
-      123
-    </div>
-  </div>
-  <div class="Box col-2 hover-grow m-3" style="cursor:pointer">
-    <div class="">
-      <img class="width-full avatar mb-md-0" src="/assets/images/222.png" alt="github" />
     </div>
     <div class="Box-body css-truncate css-truncate-overflow">
-      <a href="">
-        123erwrwerwerwerewrwersssssssssssssssssssssssssss
-      </a>
-    </div>
-    <div class="Box-footer">
-      123
+      <p>
+        {{ post.date }}
+      </p>
     </div>
   </div>
-  <div class="Box col-2 hover-grow m-3" style="cursor:pointer">
-    <div class="">
-      <img class="width-full avatar mb-md-0" src="/assets/images/222.png" alt="github" />
-    </div>
-    <div class="Box-body css-truncate css-truncate-overflow">
-      <a href="">
-        123erwrwerwerwerewrwersssssssssssssssssssssssssss
-      </a>
-    </div>
-    <div class="Box-footer">
-      123
-    </div>
-  </div>
+  {% endfor %}
 </div>
 
 
